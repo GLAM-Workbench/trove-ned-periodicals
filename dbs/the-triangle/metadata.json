@@ -1,1 +1,20 @@
-{"title": "Search The Triangle", "databases": {"the-triangle": {"queries": {"search": {"sql": "select issue_id, issue_details, issue_date, page_number, snippet(pages_fts, -1, '<span class=\"has-text-warning\">', '</span>', '...', 50) as snippet, bm25(pages_fts) AS rank from pages join pages_fts on pages.rowid=pages_fts.rowid where pages_fts match :query AND issue_date >= :start_date AND issue_date <= :end_date order by rank", "hide_sql": true, "searchmode": "raw"}}}}}
+{
+    "title": "Search NED periodicals",
+    "databases": {
+        "the-triangle": {
+            "queries": {
+                "search": {
+                    "sql": "SELECT issue_id, issue_details, issue_date, page_number, snippet(pages_fts, -1, '<span class=\"has-text-warning\">', '</span>', '...', 50) AS snippet, bm25(pages_fts) AS rank FROM pages JOIN pages_fts ON pages.rowid=pages_fts.rowid WHERE pages_fts match :query AND issue_date >= :start_date AND issue_date <= :end_date ORDER BY rank",
+                    "hide_sql": true,
+                    "searchmode": "raw",
+                    "title": "Search The Triangle",
+                    "description": "195 issues from 2007 to 2025",
+                    "source_url": "https://nla.gov.au/nla.obj-3121636851"
+                }
+            },
+            "title": "The Triangle.",
+            "description": "195 issues from 2007 to 2025",
+            "source_url": "https://nla.gov.au/nla.obj-3121636851"
+        }
+    }
+}
